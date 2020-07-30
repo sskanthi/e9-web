@@ -7,9 +7,10 @@
             <div class="container">
                 <h2>Say hello to e9</h2>
                 <p class="text-muted mb-4 mb-lg-6"> We regularly monitor our emails, let us know how we can assist and a member of the team will respond. </p>
-                <form class="needs-validation" method="POST" data-netlify="true">
+                <form class="needs-validation" method="post" name="contact" data-netlify="true" data-netlify-honeypot="bot-field">
                     <div class="row mb-5">
                         <div class="col-lg-6">
+                            <input type="hidden" name="form-name" value="contact" />
                             <div class="form-group"> <input class="form-control form-control-lg" name="name" type="text" placeholder="Your Name" required> </div>
                             <div class="form-group"> <input class="form-control form-control-lg" name="phone" type="text" placeholder="Your Phone Number"> </div>
                             <div class="form-group"> <input class="form-control form-control-lg" name="email" type="email" placeholder="Your Email" required> </div>
