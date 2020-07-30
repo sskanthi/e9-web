@@ -7,16 +7,16 @@
             <div class="container">
                 <h2>Say hello to e9</h2>
                 <p class="text-muted mb-4 mb-lg-6"> We regularly monitor our emails, let us know how we can assist and a member of the team will respond. </p>
-                <form class="needs-validation"  method="post" name="contact" netlify>
+                <form class="needs-validation" method="POST" data-netlify="true">
                     <div class="row mb-5">
                         <div class="col-lg-6">
-                            <div class="form-group"> <input class="form-control form-control-lg" name="Name" type="text" placeholder="Your Name" required> </div>
-                            <div class="form-group"> <input class="form-control form-control-lg" name="Phone" type="text" placeholder="Your Phone Number"> </div>
-                            <div class="form-group"> <input class="form-control form-control-lg" name="Email" type="email" placeholder="Your Email" required> </div>
-                            <div class="form-group"> <input class="form-control form-control-lg" name="Company" type="text" placeholder="Your Company" required> </div>
+                            <div class="form-group"> <input class="form-control form-control-lg" name="name" type="text" placeholder="Your Name" required> </div>
+                            <div class="form-group"> <input class="form-control form-control-lg" name="phone" type="text" placeholder="Your Phone Number"> </div>
+                            <div class="form-group"> <input class="form-control form-control-lg" name="email" type="email" placeholder="Your Email" required> </div>
+                            <div class="form-group"> <input class="form-control form-control-lg" name="company" type="text" placeholder="Your Company" required> </div>
                         </div>
                         <div class="col-lg-6">
-                            <div class="form-group"><textarea id="textarea" class="form-control form-control-lg" name="Message" rows="10" placeholder="How can we help?" required></textarea> </div>
+                            <div class="form-group"><textarea id="textarea" class="form-control form-control-lg" name="message" rows="10" placeholder="How can we help?" required></textarea> </div>
                         </div>
                     </div>
                     <button class="btn btn-primary" type="submit">Send Message</button>
