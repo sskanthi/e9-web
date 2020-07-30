@@ -7,7 +7,7 @@
             <div class="container">
                 <h2>Say hello to e9</h2>
                 <p class="text-muted mb-4 mb-lg-6"> We regularly monitor our emails, let us know how we can assist and a member of the team will respond. </p>
-                <form class="needs-validation"  name="contact" netlify>
+                <form class="needs-validation"  method="post" name="contact" netlify>
                     <div class="row mb-5">
                         <div class="col-lg-6">
                             <div class="form-group"> <input class="form-control form-control-lg" name="Name" type="text" placeholder="Your Name" required> </div>
