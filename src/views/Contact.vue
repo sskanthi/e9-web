@@ -7,7 +7,7 @@
             <div class="container">
                 <h2>Say hello to e9</h2>
                 <p class="text-muted mb-4 mb-lg-6"> We regularly monitor our emails, let us know how we can assist and a member of the team will respond. </p>
-                <form class="needs-validation" id="contactForm" name="contact" method="POST" data-netlify="true">
+                <form class="needs-validation"  name="contact" netlify>
                     <div class="row mb-5">
                         <div class="col-lg-6">
                             <div class="form-group"> <input class="form-control form-control-lg" name="Name" type="text" placeholder="Your Name" required> </div>
@@ -19,7 +19,7 @@
                             <div class="form-group"><textarea id="textarea" class="form-control form-control-lg" name="Message" rows="10" placeholder="How can we help?" required></textarea> </div>
                         </div>
                     </div>
-                    <button class="btn btn-primary" type="submit" :async="true">Send Message</button>
+                    <button class="btn btn-primary" type="submit">Send Message</button>
                     <div class="mt-5" v-show="messageSent">
                         <h3>Thank you.</h3>
                         <p>We 'll be in touch. Shortly!</p>
@@ -288,16 +288,6 @@ export default {
             map: map4,
             icon: e9Image,
             position: new window.google.maps.LatLng(12.9957386, 77.6932497)
-        });
-
-        //contact form
-        $('#contactForm').submit(function(e) {
-            e.preventDefault();
-
-            var $form = $(this);
-            $.post($form.attr('action'), $form.serialize()).then(()=> {
-                this.messageSent=true;
-            });
         });
     },
     metaInfo() {
