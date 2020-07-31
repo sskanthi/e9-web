@@ -45,6 +45,7 @@ const webpackOptions = {
         workboxPluginMode: 'GenerateSW',
         workboxOptions: {
             exclude: [/\.map$/, /_redirects/],
+            skipWaiting: true,
         },
     },
 };

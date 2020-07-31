@@ -15,11 +15,10 @@ if (process.env.NODE_ENV === 'production') {
         updatefound() {
             console.log('New content is downloading.');
         },
-        updated(registration) {
+        updated() {
             console.log('New content is available; please refresh.');
             let confirmationResult = confirm('New content found! Do you want to reload the app?');
             if (confirmationResult) {
-                registration.waiting.postMessage({action: 'skipWaiting'});
                 if (refreshing) return;
                 window.location.reload();
                 refreshing = true;
