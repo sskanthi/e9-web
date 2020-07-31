@@ -7,7 +7,7 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-10 text-center">
-                        <h2 class="mb-4 text-light font-weight-demi">We believe</h2>
+                        <h2 class="mb-4 text-light font-weight-demi">We believe in you</h2>
                         <h1 class="mb-5">“Strive for perfection in everything you do. Take the best that exists and make it better. When it does not exist, design it.”</h1>
                         <p class="lead text-light mb-0">Sir Henry Royce</p>
                     </div>
@@ -192,38 +192,37 @@ export default {
             jobs: jobs,
             selectedJob: null,
             settings: {
-                'centerMode': true,
-                'centerPadding': '20px',
-                'dots': true,
-                'dotsClass': 'slick-dots white-dots',
-                'edgeFriction': 0.35,
-                'infinite': true,
+                centerMode: true,
+                centerPadding: '20px',
+                dots: true,
+                dotsClass: 'slick-dots white-dots',
+                edgeFriction: 0.35,
+                infinite: true,
                 variableWidth: true,
-                'speed': 800,
-                'slidesToShow': 2,
-                'slidesToScroll': 2,
-                'cssEase':'ease-in-out',
-                'responsive': [
+                speed: 800,
+                slidesToShow: 2,
+                slidesToScroll: 2,
+                cssEase: 'ease-in-out',
+                responsive: [
                     {
-                        'breakpoint': 1366,
-                        'settings': {
-                            'slidesToShow': 2,
-                            'slidesToScroll': 2,
-                            'centerPadding': '60px',
-                        }
+                        breakpoint: 1366,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2,
+                            centerPadding: '60px',
+                        },
                     },
                     {
-                        'breakpoint': 768,
-                        'settings': {
-                            'slidesToShow': 1,
-                            'slidesToScroll': 1,
-                            'centerMode': false,
-                            'centerPadding': '0',
-                        }
-                    }
-                ]
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            centerMode: false,
+                            centerPadding: '0',
+                        },
+                    },
+                ],
             },
-          
         };
     },
     methods: {
