@@ -1,7 +1,7 @@
 const webpackOptions = {
     lintOnSave: true,
     configureWebpack: {
-        devtool: 'eval'
+        devtool: 'eval',
     },
     css: {
         loaderOptions: {
@@ -12,9 +12,9 @@ const webpackOptions = {
 				@import "~bootstrap/scss/_variables.scss";
 				@import "~@/scss/base/variables.scss";
                 @import "~@/scss/utilities/mixins.scss";
-				`
-            }
-        }
+				`,
+            },
+        },
     },
     chainWebpack(config) {
         config.module
@@ -41,20 +41,21 @@ const webpackOptions = {
         themeColor: '#D21D1C',
         msTileColor: '#D21D1C',
         appleMobileWebAppCapable: 'yes',
-        appleMobileWebAppStatusBarStyle: 'default',  
-        workboxPluginMode: 'GenerateSW'
-    }
+        appleMobileWebAppStatusBarStyle: 'default',
+        workboxPluginMode: 'GenerateSW',
+        exclude: [/\.map$/, /_redirects/],
+    },
 };
 
 if (process.env.NODE_ENV === 'production') {
     const CompressionPlugin = require('compression-webpack-plugin');
-    webpackOptions.chainWebpack = config => {
+    webpackOptions.chainWebpack = (config) => {
         config.optimization.splitChunks({
             minSize: 0,
             maxSize: 250000,
             minChunks: 2,
             maxAsyncRequests: 6,
-            chunks: 'all'
+            chunks: 'all',
         });
 
         config.module
@@ -76,11 +77,8 @@ if (process.env.NODE_ENV === 'production') {
             .use('imports-loader?THREE=three')
             .loader('imports-loader?THREE=three')
             .end();
-
     };
     webpackOptions.configureWebpack.devtool = 'none';
-    webpackOptions.configureWebpack.plugins = [
-        new CompressionPlugin()
-    ];
+    webpackOptions.configureWebpack.plugins = [new CompressionPlugin()];
 }
 module.exports = webpackOptions;
