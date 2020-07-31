@@ -6,11 +6,12 @@ const isSupported = () => {
     alreadyTested = true;
 
     // Test via a getter in the options object to see if the passive property is accessed
+    let opts;
     try {
-        let opts = Object.defineProperty({}, 'passive', {
+        opts = Object.defineProperty({}, 'passive', {
             get: () => {
-                passiveSupported = true;
-            }
+                return (passiveSupported = true);
+            },
         });
         window.addEventListener('test', null, opts);
     } catch (e) {
@@ -21,7 +22,7 @@ const isSupported = () => {
 };
 
 const passiveEvent = () => {
-    return isSupported() ? { passive: true } : false;
+    return isSupported() ? {passive: true} : false;
 };
 
-export { passiveEvent };
+export {passiveEvent};
