@@ -7,7 +7,7 @@
             <div class="container">
                 <h2>Say hello to e9</h2>
                 <p class="text-muted mb-4 mb-lg-6"> We regularly monitor our emails, let us know how we can assist and a member of the team will respond. </p>
-                <form class="needs-validation" method="post" name="contact" data-netlify="true" data-netlify-honeypot="bot-field">
+                <!-- <form class="needs-validation" method="post" name="contact" data-netlify="true" data-netlify-honeypot="bot-field">
                     <input type="hidden" name="form-name" value="contact" />
                     <div class="row mb-5">
                         <div class="col-lg-6">
@@ -28,7 +28,39 @@
                     <div class="mt-5" v-show="messageError">
                         <p>We are unable to send your message right now. Please try again after sometime or contact <a href="mailto:info@e9ine.com">info@e9ine.com</a></p>
                     </div>
-                </form>
+                </form> -->
+                <form
+  name="contact"
+  method="post"
+  v-on:submit.prevent="handleSubmit"
+  action="/success/"
+  data-netlify="true"
+  data-netlify-honeypot="bot-field"
+>
+  <input type="hidden" name="form-name" value="contact" />
+  <p hidden>
+    <label>
+      Don’t fill this out: <input name="bot-field" />
+    </label>
+  </p>
+  <div class="sender-info">
+    <div>
+      <label for="name" class="label" >Your name</label>
+      <input type="text" name="name" v-model="formData.name" />
+    </div>
+    <div>
+      <label for="email">Your email</label>
+      <input type="email" name="email" v-model="formData.email" />
+    </div>
+  </div>
+
+  <div class="message-wrapper">
+    <label for="message">Message</label>
+    <textarea name="message" v-model="formData.message"></textarea>
+  </div>
+
+  <button type="submit">Submit form</button>
+</form>
             </div>
         </section>
         <section>
@@ -213,8 +245,29 @@ export default {
             pageTitle:'Lets start something together',
             pageDesc:'It’s time for you to speak with our team. We are here to answer all your questions, from your business needs, investment opportunities to work opportunities within the company. Below you will find our contact form, and further information below that, if you want to write a letter or give us a call. We look forward to hearing from you.',
             messageSent:false,
-            messageError:false
+            messageError:false,
+                formData: {}
+
         };
+    },
+    methods: {
+ encode(data) {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+      .join('&')
+  },
+  handleSubmit(e) {
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: this.encode({
+        'form-name': e.target.getAttribute('name'),
+        ...this.formData,
+      }),
+    })
+    .then(() => this.$router.push('/success'))
+    .catch(error => alert(error))
+  }
     },
     mounted() {
         //Cover animation
