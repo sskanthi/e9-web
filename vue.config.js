@@ -43,7 +43,9 @@ const webpackOptions = {
         appleMobileWebAppCapable: 'yes',
         appleMobileWebAppStatusBarStyle: 'default',
         workboxPluginMode: 'GenerateSW',
-        exclude: [/\.map$/, /_redirects/],
+        workboxOptions: {
+            exclude: [/\.map$/, /_redirects/],
+        },
     },
 };
 
